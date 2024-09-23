@@ -41,15 +41,18 @@
   </section>
 
   <section class="section">
-    <form action='/formsubmit' method = 'post'>
+    <form action='/formsubmit' method='POST'>
     <div class="columns is-centered">
     <div class="level">
       <div class="level-left">
         <div class="level-item">
           <div class="field">
             <label class="label">Gender</label>
-            <div class="control">
-              <input class="input" type="text" required>
+            <div class="select">
+              <select name="gender">
+                <option value="1">Laki-Laki</option>
+                <option value="0">Perempuan</option>
+              </select>
             </div>
           </div>
         </div>
@@ -57,7 +60,7 @@
           <div class="field">
             <label class="label">Age</label>
             <div class="control">
-              <input class="input" type="text" required>
+              <input class="input" type="text" required name="age">
             </div>
           </div>
         </div>
@@ -72,7 +75,7 @@
           <div class="field">
             <label class="label">Annual Income</label>
             <div class="control">
-              <input class="input" type="text" required>
+              <input class="input" type="text" required name="annual_income">
             </div>
           </div>
         </div>
@@ -80,7 +83,7 @@
           <div class="field">
             <label class="label">Membership Tier</label>
             <div class="control">
-              <input class="input" type="text" required>
+              <input class="input" type="text" required name="membership_tier">
             </div>
           </div>
         </div>
@@ -95,15 +98,20 @@
           <div class="field">
             <label class="label">Weekly Income</label>
             <div class="control">
-              <input class="input" type="text" required>
+              <input class="input" type="text" required name="weekly_income">
             </div>
           </div>
         </div>
         <div class="level-item">
           <div class="field">
             <label class="label">Region</label>
-            <div class="control">
-              <input class="input" type="text" required>
+            <div class="select">
+              <select name="region">
+                <option value="1">South</option>
+                <option value="2">West</option>
+                <option value="3">East</option>
+                <option value="4">North</option>
+              </select>
             </div>
           </div>
         </div>
