@@ -41,10 +41,15 @@ def model_data_info():
     new_labels, distances = test_new_data(new_data, loaded_dbscan, loaded_scaler)
     results = []
     for i, (label, distance) in enumerate(zip(new_labels, distances)):
-        if label != -1:
-            text = f"Data point {i} termasuk dalam cluster {label} dengan jarak {distance:.4f} ke titik inti terdekat"
+        if(label == 1 or label == 3):
+            reward = "Mendapat Reward"
         else:
-            text = f"Data point {i} diklasifikasikan sebagai noise. Cluster terdekat berjarak {distance:.4f}"
+            reward = "Tidak Mendapat Reward"
+        
+        if label != -1:
+            text = f"Data point {i} termasuk dalam cluster {label} dengan jarak {distance:.4f} ke titik inti terdekat {reward}"
+        else:
+            text = f"Data point {i} diklasifikasikan sebagai noise. Cluster terdekat berjarak {distance:.4f} {reward}"
         results.append(text)
     
     return redirect(url_for('modeldatainfo', results=','.join(results)))
@@ -93,10 +98,14 @@ def model_data_info_csv():
         new_labels, distances = test_new_data(new_data, loaded_dbscan, loaded_scaler)
         
         for i, (label, distance) in enumerate(zip(new_labels, distances)):
-            if label != -1:
-                text = f"Baris {index + 2}: Data point {i} termasuk dalam cluster {label} dengan jarak {distance:.4f} ke titik inti terdekat"
+            if(label == 1 or label == 3):
+                reward = "Mendapat Reward"
             else:
-                text = f"Baris {index + 2}: Data point {i} diklasifikasikan sebagai noise. Cluster terdekat berjarak {distance:.4f}"
+                reward = "Tidak Mendapat Reward"
+            if label != -1:
+                text = f"Baris {index + 2}: Data point {i} termasuk dalam cluster {label} dengan jarak {distance:.4f} ke titik inti terdekat {reward}"
+            else:
+                text = f"Baris {index + 2}: Data point {i} diklasifikasikan sebagai noise. Cluster terdekat berjarak {distance:.4f} {reward}"
             results.append(text)
 
     return redirect(url_for('modeldatainfo', results=','.join(results)))
